@@ -1,0 +1,33 @@
+$date
+	Mon Nov 27 16:47:29 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 1 ! result $end
+$var reg 3 " A [2:0] $end
+$var reg 3 # B [2:0] $end
+$scope module myCmp $end
+$var wire 3 $ A [2:0] $end
+$var wire 3 % B [2:0] $end
+$var wire 3 & tempA [2:0] $end
+$var wire 3 ' tempB [2:0] $end
+$var wire 1 ! isABigerB $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b111 '
+b11 &
+b111 %
+b11 $
+b111 #
+b11 "
+0!
+$end
+#5

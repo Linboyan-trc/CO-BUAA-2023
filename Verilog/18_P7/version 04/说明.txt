@@ -1,0 +1,14 @@
+1.对于让外部中断停止
+mips顶层中
+    1.m_int_addr和m_int_byteen没有做成reg
+    2.没有使用posedge clk对m_int_addr m_int_byteen赋值
+    3.无法成功对tb中的interrupt置0
+    如果需要修改:
+        1.mips顶层中m_int_addr和m_int_byteen做成reg
+        2.使用posedge clk对对m_int_addr m_int_byteen赋值
+        3.就可以在下降沿对interrupt置0
+
+2.对于外部中断的m_int_byteen
+    目前采用DM的byteen赋值给m_int_byteen
+    之前是对于命中72f0后直接对m_int_byteen置位
+

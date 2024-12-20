@@ -1,0 +1,118 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x13ee048b0 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0x13ee15670_0 .var "Clk", 0 0;
+v0x13ee15700_0 .var "En", 0 0;
+v0x13ee15790_0 .net "Output", 2 0, L_0x13ee15f80;  1 drivers
+v0x13ee15860_0 .net "Overflow", 0 0, v0x13ee14e90_0;  1 drivers
+v0x13ee15910_0 .var "Reset", 0 0;
+S_0x13ee04a20 .scope module, "myGray" "gray" 2 7, 3 1 0, S_0x13ee048b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "Clk";
+    .port_info 1 /INPUT 1 "Reset";
+    .port_info 2 /INPUT 1 "En";
+    .port_info 3 /OUTPUT 3 "Output";
+    .port_info 4 /OUTPUT 1 "Overflow";
+L_0x13ee15ba0 .functor XOR 1, L_0x13ee159e0, L_0x13ee15aa0, C4<0>, C4<0>;
+L_0x13ee15e90 .functor XOR 1, L_0x13ee15cb0, L_0x13ee15d50, C4<0>, C4<0>;
+v0x13ee04ca0_0 .net "Clk", 0 0, v0x13ee15670_0;  1 drivers
+v0x13ee14d50_0 .net "En", 0 0, v0x13ee15700_0;  1 drivers
+v0x13ee14df0_0 .net "Output", 2 0, L_0x13ee15f80;  alias, 1 drivers
+v0x13ee14e90_0 .var "Overflow", 0 0;
+v0x13ee14f30_0 .net "Reset", 0 0, v0x13ee15910_0;  1 drivers
+v0x13ee15010_0 .net *"_ivl_11", 0 0, L_0x13ee15cb0;  1 drivers
+v0x13ee150c0_0 .net *"_ivl_13", 0 0, L_0x13ee15d50;  1 drivers
+v0x13ee15170_0 .net *"_ivl_14", 0 0, L_0x13ee15e90;  1 drivers
+v0x13ee15220_0 .net *"_ivl_20", 0 0, L_0x13ee16110;  1 drivers
+v0x13ee15330_0 .net *"_ivl_3", 0 0, L_0x13ee159e0;  1 drivers
+v0x13ee153e0_0 .net *"_ivl_5", 0 0, L_0x13ee15aa0;  1 drivers
+v0x13ee15490_0 .net *"_ivl_6", 0 0, L_0x13ee15ba0;  1 drivers
+v0x13ee15540_0 .var "cnt", 2 0;
+E_0x13ee04c60 .event posedge, v0x13ee04ca0_0;
+L_0x13ee159e0 .part v0x13ee15540_0, 0, 1;
+L_0x13ee15aa0 .part v0x13ee15540_0, 1, 1;
+L_0x13ee15cb0 .part v0x13ee15540_0, 1, 1;
+L_0x13ee15d50 .part v0x13ee15540_0, 2, 1;
+L_0x13ee15f80 .concat8 [ 1 1 1 0], L_0x13ee15ba0, L_0x13ee15e90, L_0x13ee16110;
+L_0x13ee16110 .part v0x13ee15540_0, 2, 1;
+    .scope S_0x13ee04a20;
+T_0 ;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x13ee15540_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x13ee14e90_0, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x13ee04a20;
+T_1 ;
+    %wait E_0x13ee04c60;
+    %load/vec4 v0x13ee14f30_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x13ee15540_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13ee14e90_0, 0, 1;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0x13ee14d50_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.2, 8;
+    %load/vec4 v0x13ee15540_0;
+    %addi 1, 0, 3;
+    %assign/vec4 v0x13ee15540_0, 0;
+    %load/vec4 v0x13ee15540_0;
+    %cmpi/e 7, 0, 3;
+    %jmp/0xz  T_1.4, 4;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x13ee14e90_0, 0;
+T_1.4 ;
+T_1.2 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x13ee048b0;
+T_2 ;
+    %vpi_call 2 16 "$dumpfile", "reference.vcd" {0 0 0};
+    %vpi_call 2 17 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_0x13ee048b0;
+T_3 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13ee15670_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13ee15910_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13ee15700_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13ee15910_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13ee15700_0, 0, 1;
+    %delay 18, 0;
+    %vpi_call 2 27 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+    .scope S_0x13ee048b0;
+T_4 ;
+    %delay 1, 0;
+    %load/vec4 v0x13ee15670_0;
+    %inv;
+    %store/vec4 v0x13ee15670_0, 0, 1;
+    %jmp T_4;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb.v";
+    "gray.v";

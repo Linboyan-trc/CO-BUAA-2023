@@ -1,0 +1,9 @@
+lui $1,0xffff
+lui $2,0x1234
+ori $29,$0,0x2080
+jap label
+ori $3,0xffff
+ori $4,0xffff
+ori $5,0xffff
+label:
+ori $6,0xffff

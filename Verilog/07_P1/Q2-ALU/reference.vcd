@@ -1,0 +1,59 @@
+$date
+	Thu Oct 12 02:45:12 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 32 ! C [31:0] $end
+$var reg 32 " A [31:0] $end
+$var reg 3 # ALUOp [2:0] $end
+$var reg 32 $ B [31:0] $end
+$scope module myAlu $end
+$var wire 32 % A [31:0] $end
+$var wire 3 & ALUOp [2:0] $end
+$var wire 32 ' B [31:0] $end
+$var wire 32 ( temp [31:0] $end
+$var wire 32 ) C [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1111000000000101 )
+b111100000000 (
+b100 '
+b0 &
+b1111000000000001 %
+b100 $
+b0 #
+b1111000000000001 "
+b1111000000000101 !
+$end
+#1
+b1110111111111101 !
+b1110111111111101 )
+b1 #
+b1 &
+#2
+b0 !
+b0 )
+b10 #
+b10 &
+#3
+b1111000000000101 !
+b1111000000000101 )
+b11 #
+b11 &
+#4
+b111100000000 !
+b111100000000 )
+b100 #
+b100 &
+#5
+b101 #
+b101 &
+#10

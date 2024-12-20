@@ -1,0 +1,23 @@
+lui $1,0xf000
+ori $2,0x0008
+# mult
+mult $1,$2
+mfhi $3
+mflo $4
+# multu 
+multu $1,$2
+mfhi $5
+mflo $6
+# div
+div $1,$2
+mfhi $7
+mflo $8
+# divu
+div $1,$2
+mfhi $9
+mflo $10
+# mthi mtlo
+mthi $1
+mtlo $2
+mfhi $11
+mflo $12

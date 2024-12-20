@@ -1,0 +1,90 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x1347050b0 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0x135805000_0 .net "ans", 3 0, L_0x135805f10;  1 drivers
+v0x1358050d0_0 .var "inA", 3 0;
+v0x135805160_0 .var "inB", 3 0;
+v0x1358051f0_0 .var "op", 1 0;
+S_0x1346072b0 .scope module, "ALU_My" "ALU" 2 6, 3 1 0, S_0x1347050b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "inA";
+    .port_info 1 /INPUT 4 "inB";
+    .port_info 2 /INPUT 2 "op";
+    .port_info 3 /OUTPUT 4 "ans";
+L_0x1358053e0 .functor AND 4, v0x1358050d0_0, v0x135805160_0, C4<1111>, C4<1111>;
+L_0x1358055b0 .functor OR 4, v0x1358050d0_0, v0x135805160_0, C4<0000>, C4<0000>;
+L_0x1358057c0 .functor XOR 4, v0x1358050d0_0, v0x135805160_0, C4<0000>, C4<0000>;
+L_0x118008010 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x1346074b0_0 .net/2u *"_ivl_0", 1 0, L_0x118008010;  1 drivers
+v0x1358041a0_0 .net *"_ivl_10", 3 0, L_0x1358055b0;  1 drivers
+L_0x1180080a0 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v0x135804260_0 .net/2u *"_ivl_12", 1 0, L_0x1180080a0;  1 drivers
+v0x135804310_0 .net *"_ivl_14", 0 0, L_0x135805680;  1 drivers
+v0x1358043a0_0 .net *"_ivl_16", 3 0, L_0x1358057c0;  1 drivers
+L_0x1180080e8 .functor BUFT 1, C4<11>, C4<0>, C4<0>, C4<0>;
+v0x135804470_0 .net/2u *"_ivl_18", 1 0, L_0x1180080e8;  1 drivers
+v0x135804510_0 .net *"_ivl_2", 0 0, L_0x1358052a0;  1 drivers
+v0x1358045b0_0 .net *"_ivl_20", 0 0, L_0x135805950;  1 drivers
+v0x135804650_0 .net *"_ivl_22", 3 0, L_0x135805a30;  1 drivers
+L_0x118008130 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0x135804760_0 .net/2u *"_ivl_24", 3 0, L_0x118008130;  1 drivers
+v0x135804810_0 .net *"_ivl_26", 3 0, L_0x135805b70;  1 drivers
+v0x1358048c0_0 .net *"_ivl_28", 3 0, L_0x135805c90;  1 drivers
+v0x135804970_0 .net *"_ivl_30", 3 0, L_0x135805df0;  1 drivers
+v0x135804a20_0 .net *"_ivl_4", 3 0, L_0x1358053e0;  1 drivers
+L_0x118008058 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x135804ad0_0 .net/2u *"_ivl_6", 1 0, L_0x118008058;  1 drivers
+v0x135804b80_0 .net *"_ivl_8", 0 0, L_0x1358054d0;  1 drivers
+v0x135804c20_0 .net "ans", 3 0, L_0x135805f10;  alias, 1 drivers
+v0x135804db0_0 .net "inA", 3 0, v0x1358050d0_0;  1 drivers
+v0x135804e40_0 .net "inB", 3 0, v0x135805160_0;  1 drivers
+v0x135804ef0_0 .net "op", 1 0, v0x1358051f0_0;  1 drivers
+L_0x1358052a0 .cmp/eq 2, v0x1358051f0_0, L_0x118008010;
+L_0x1358054d0 .cmp/eq 2, v0x1358051f0_0, L_0x118008058;
+L_0x135805680 .cmp/eq 2, v0x1358051f0_0, L_0x1180080a0;
+L_0x135805950 .cmp/eq 2, v0x1358051f0_0, L_0x1180080e8;
+L_0x135805a30 .arith/sum 4, v0x1358050d0_0, v0x135805160_0;
+L_0x135805b70 .functor MUXZ 4, L_0x118008130, L_0x135805a30, L_0x135805950, C4<>;
+L_0x135805c90 .functor MUXZ 4, L_0x135805b70, L_0x1358057c0, L_0x135805680, C4<>;
+L_0x135805df0 .functor MUXZ 4, L_0x135805c90, L_0x1358055b0, L_0x1358054d0, C4<>;
+L_0x135805f10 .functor MUXZ 4, L_0x135805df0, L_0x1358053e0, L_0x1358052a0, C4<>;
+    .scope S_0x1347050b0;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "reference.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x1347050b0;
+T_1 ;
+    %pushi/vec4 6, 0, 4;
+    %store/vec4 v0x1358050d0_0, 0, 4;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x135805160_0, 0, 4;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x1358051f0_0, 0, 2;
+    %delay 16, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x1347050b0;
+T_2 ;
+    %delay 4, 0;
+    %load/vec4 v0x1358051f0_0;
+    %addi 1, 0, 2;
+    %assign/vec4 v0x1358051f0_0, 0;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb.v";
+    "ALU.v";

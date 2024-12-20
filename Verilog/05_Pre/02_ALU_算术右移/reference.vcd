@@ -1,0 +1,57 @@
+$date
+	Thu Aug 17 21:19:35 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 4 ! ans [3:0] $end
+$var reg 4 " inA [3:0] $end
+$var reg 4 # inB [3:0] $end
+$var reg 4 $ inC [3:0] $end
+$var reg 2 % op [1:0] $end
+$scope module ALU_My $end
+$var wire 4 & inA [3:0] $end
+$var wire 4 ' inB [3:0] $end
+$var wire 4 ( inC [3:0] $end
+$var wire 2 ) op [1:0] $end
+$var wire 4 * ans [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1111 *
+b0 )
+b10 (
+b101 '
+b1110 &
+b0 %
+b10 $
+b101 #
+b1110 "
+b1111 !
+$end
+#4
+b11 !
+b11 *
+b1 %
+b1 )
+#8
+b1001 !
+b1001 *
+b10 %
+b10 )
+#12
+b11 !
+b11 *
+b11 %
+b11 )
+#16
+b1111 !
+b1111 *
+b0 %
+b0 )

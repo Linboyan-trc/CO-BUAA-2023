@@ -1,0 +1,5 @@
+这个版本没有addiu addu
+用的eret是M级判断，然后对ID EX MEM都清0，还对MDU等有影响
+
+新的版本有addiu addu
+用的eret是D级判断，只对ID清零；同时如果E级为mtC0，M级为mtc0,会引起可能的暂停

@@ -1,0 +1,16 @@
+addu--ok
+subu--ok
+sll--ok
+slt--ok
+jr--ok
+jalr--ok
+
+ori--ok
+lw--ok
+sw--ok
+beq--ok
+lui--ok
+lb--ok
+
+j--ok
+jal--ok

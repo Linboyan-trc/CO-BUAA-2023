@@ -1,0 +1,41 @@
+$date
+	Mon Nov 13 16:39:36 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 1 ! isEqual $end
+$var wire 32 " C [31:0] $end
+$var reg 32 # A [31:0] $end
+$var reg 3 $ ALUOp [2:0] $end
+$var reg 32 % B [31:0] $end
+$scope module u_ALU $end
+$var wire 32 & A [31:0] $end
+$var wire 3 ' ALUOp [2:0] $end
+$var wire 32 ( B [31:0] $end
+$var wire 1 ! isEqual $end
+$var wire 32 ) C [31:0] $end
+$var reg 32 * temp [31:0] $end
+$var integer 32 + i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx +
+b0 *
+b10000000000111101 )
+b111100 (
+b0 '
+b10000000000000001 &
+b111100 %
+b0 $
+b10000000000000001 #
+b10000000000111101 "
+0!
+$end
+#2

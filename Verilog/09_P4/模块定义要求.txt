@@ -1,0 +1,22 @@
+1.顶层
+module mips(
+    input clk,
+    input reset
+);
+endmodule
+
+2.GRF和DM要输出
+$display("@%h: $%d <= %h", pc, 寄存器编号, 写入的数据);
+$display("@%h: *%h <= %h", pc, DM地址, 写入的数据);
+
+3.其他
+ IM_01:设计要求[0:4095]*32 但是由于mips只能1024条，这里先设计成[0:1023]*32
+ reset设计为高电平同步复位
+
+4.常用语法
+    1.三目
+        assign ans =(条件)?数值:
+                    (条件)?数值:
+                    默认数值;
+
+    
