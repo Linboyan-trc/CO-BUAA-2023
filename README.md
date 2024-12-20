@@ -9,7 +9,7 @@
 - [roife博客链接](https://roife.github.io/)
 
 ### 实验课程内容
-实验部分包括:Logisim, MIPS, Verilog基础知识, Logisim搭建单周期CPU, Verilog编写五级流水线CPU
+- 实验部分包括:Logisim, MIPS, Verilog基础知识, Logisim搭建单周期CPU, Verilog编写五级流水线CPU
 
 ### 各目录内容说明
 - Logisim
